@@ -1,0 +1,75 @@
+Object detection (autorickshaw)
+===============================
+
+By Shivam Mittal
+2015CSB1032
+=================
+
+Download the dependencies and outputs from google drive
+link (https://drive.google.com/open?id=1oNXrOHV35RyoykAqJPNWTGW5yW5mXPKk)
+Dependencies and outputs:
+outputs
+test_output.mat
+auto_det_chal_train_7oct folder
+matconvnet-1.0-beta25 folder
+imagenet-googlenet-dag.mat
+SVM_models.mat
+train_features.mat
+
+Running and compiling
+-----------------------
+
+The training and test results have already been attached because they take long time.
+training yields 2 files -> train_features.mat and SVM_models.mat
+If you want to train again, delete these 2 files and run Train_2015CSB1032.m:
+1. Open matlab
+2. Navigate to this folder
+3. Run Train_2015CSB1032.m
+
+test results are stored as images in outputs folder and as bounding boxes in test_output.mat
+If you want to test again, delete the images insider output/ (keep the folder) and delete test_output.mat
+and run Test_2015CSB1032.m :
+1. Open matlab
+2. Navigate to this folder
+3. Run Test_2015CSB1032.m
+
+The script Train_2015CSB1032.m read the 0.jpg to 599.jpg images from the auto_det_chal_train_7oct/images folder
+and labels from auto_det_chal_train_7oct/bbs/bbs.json
+
+The script Test_2015CSB1032.m reads the 600.jpg to 799.jpg from auto_det_chal_train_7oct/images for testing.
+If you want to test on other images, changes will have to be made in the Test_2015CSB1032.m script.
+The results of the detector are stored in the outputs folder as images, and in the test_output
+
+
+File and folder information
+----------------------------
+auto_det_chal_train_7oct -> Contains data for training and testing
+
+matconvnet-1.0-beta25 -> Code for running pre-trained neural networks [1]
+
+outputs -> The images outputs for test images
+
+extract_feature_2015CSB1032.m -> Script for extract features frmo images
+
+imagenet-googlenet-dag.mat -> The pretrained CNN weights
+
+JSON.m -> JSON file parser for MATLAB [2]
+
+SVM_models.mat -> The SVM classifier saved so that retraining is not needed
+
+Test_2015CSB1032.m -> Test script
+
+test_output.mat -> The bounding boxes dimensions stored. The first bounding box is for image 600 and so on.
+
+Train_2015CSB1032.m -> Train script
+
+train_features.mat -> Features of patches extracted from bounding boxes used for training
+
+
+
+References:
+------------
+
+1. MatConvNet - http://www.vlfeat.org/matconvnet/quick/
+
+2. JSON parser for MATLAB - https://in.mathworks.com/matlabcentral/fileexchange/42236-parse-json-text?focused=3814377&tab=example
